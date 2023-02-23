@@ -1,3 +1,6 @@
+# a class file to define Units object representing combat units in the game.
+
+
 from queue import Empty
 import random
 import scipy.spatial
@@ -33,14 +36,15 @@ class Unit:
         self.resizeShape(forme)
         self.geo.buffer(0) #buffer pour "trier" le polygon
         
-    def computeAngle(self,a,b): #calcul l'angle entre la position actuelle et la target
+      
+    def computeAngle(self,a,b):   #compute anglet between actual position and target
         if a[0] == b[0] and a[1] == b[1]:
             return [0,0]
         else:
             angle = math.atan2((b[1] - a[1]),(b[0] - a[0]))
             return [math.cos(angle),math.sin(angle)]
         
-    def setVelocity(self): # update la direction
+    def setVelocity(self): # update direction
         if np.array_equal(self.target,self.coordinates)==False :
             z=0
             while z < len(self.velocity):
@@ -49,13 +53,13 @@ class Unit:
         
     def move(self): #move
         SortedArray = self.sortArray(self.coordinates,self.target) #sort target and coordinates points so they are associates by proximity with each other.
-        self.target = SortedArray[1] #retourne la première array triée
+        self.target = SortedArray[1] #return first array sorted
         self.coordinates = SortedArray[0]
         self.setVelocity()
         self.coordinates = self.coordinates + self.velocity
         self.geo = Polygon([(i[0], i[1]) for i in self.coordinates])
 
-    def setTarget(self,newTarget): #défini une nouvelle target il y"a un bug avec la fonction resiez icciiiiiiii
+    def setTarget(self,newTarget): #define new target
         newTarget = np.array(newTarget)
         if len(newTarget) != len(self.coordinates):
             forme = (np.array(newTarget)).shape
@@ -64,10 +68,10 @@ class Unit:
         else:
             self.target = newTarget
         
-    def distance(self, p0, p1): #Fonction de calcul de la distance entre deux points.
+    def distance(self, p0, p1): #Compute distance between two points.
         return math.sqrt((p0[0] - p1[0])**2 + (p0[1] - p1[1])**2)
 
-    def sortArray(self,A:np.array,B:np.array): #permet de ranger 2 listes par proximité.
+    def sortArray(self,A:np.array,B:np.array): #Sort two list by proximity bewteen each points.
         i=0
         listA = []
         listB = []
