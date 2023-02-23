@@ -1,0 +1,28 @@
+Limite d'aire minimum et maximum
+Malus si aire trop petite
+Dès que zone de combat d'une certaine taille : arrêt<
+Combat : Trois issus possible drawn win defeat
+un centroid qui représente le QG
+
+Déplacements basiques
+    Pouvoir bouger le polygon en fonction d'une target : Done
+    Pouvoir ajouter des points done 
+    Pouvoir réduire les points done
+
+Combats
+    Détecter une collision : done
+    Attribuer les différentes collisions à une unité
+    Déterminer l'issue d'une collision
+    Agrandir un polygone : done
+    Rétrécir un polygone : done
+    Couper en deux un polygone
+    Définir une nouvelle cible après la collision
+
+Déplacements avancés
+    Pouvoir évolué sur maps
+
+Gameplay
+    Amis et ennemis
+    Mécaniques et paramètres des combats
+maps
+IA
